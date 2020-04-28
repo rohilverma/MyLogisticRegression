@@ -10,7 +10,7 @@ class LogisticRegression:
 
     def train(self, x, y, epochs=5):
         n, d = x.shape
-        if self.w == None:
+        if self.w is None:
             self.w = np.random.rand(d, 1)
 
         _, s, _ = svds(x, k=1)
