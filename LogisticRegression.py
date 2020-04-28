@@ -32,3 +32,11 @@ class LogisticRegression:
             # alpha = 0.1
 
             self.w -= alpha*cost_d
+
+    def score(self, x, y):
+        n, _ = x.shape
+        if self.w is None:
+            raise NotImplementedError
+        h = expit(x @ self.w)
+        acc = ((h > 0.5) == y).sum() / n
+        return acc
